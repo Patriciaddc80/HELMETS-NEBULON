@@ -40,38 +40,66 @@ const utils = {
 };
 
 // Mobile menu functionality
-const mobileMenu = {
-  init() {
-    const header = document.getElementById('header');
-    if (!header) return;
-
-    header.addEventListener('click', utils.throttle(function(e) {
-      if (e.target.id === 'hamburger' || e.target.closest('#hamburger')) {
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenu) {
-          mobileMenu.classList.toggle('hidden');
-        }
-      }
-    }, 250));
-  }
-};
-
-// Form handling
-const forms = {
-  init() {
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-      form.addEventListener('submit', utils.debounce(function(e) {
-        e.preventDefault();
-        // Add your form submission logic here
-      }, 300));
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
     });
   }
-};
+
+  // Handle image loading errors
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+    });
+  });
+});
+
+// Email form handling
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const emailInput = form.querySelector('#email');
+  const errorSpan = form.querySelector('#emailError');
+  
+  // Reset previous error
+  errorSpan.className = 'hidden block mt-2 text-yellow-400 text-sm';
+  
+  // Check if empty
+  if (!emailInput.value.trim()) {
+    errorSpan.textContent = 'Please fill in your email address';
+    errorSpan.classList.remove('hidden');
+    return false;
+  }
+
+  // Validate email
+  const email = emailInput.value.trim();
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+  if (!emailRegex.test(email)) {
+    errorSpan.textContent = 'Please enter a valid email address and try again';
+    errorSpan.classList.remove('hidden');
+    return false;
+  }
+
+  // Simulate form submission
+  errorSpan.textContent = 'Submitting...';
+  errorSpan.classList.remove('hidden');
+  
+  // Simulate API call
+  setTimeout(() => {
+    errorSpan.textContent = 'Thank you for subscribing!';
+    errorSpan.className = 'block mt-2 text-green-500 text-sm';
+    form.reset();
+  }, 1000);
+
+  return false;
+}
 
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  mobileMenu.init();
-  forms.init();
   utils.lazyLoadImages();
 }); 
