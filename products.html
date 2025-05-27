@@ -566,9 +566,7 @@
       const mobileMenu = document.getElementById("mobile-menu");
       
       if (hamburger && mobileMenu) {
-        hamburger.addEventListener("click", function(e) {
-          e.preventDefault();
-          e.stopPropagation();
+        hamburger.addEventListener("click", function() {
           mobileMenu.classList.toggle("hidden");
         });
       }
@@ -606,6 +604,7 @@
       z-index: 50;
       background-color: #111827;
       border-top: 1px solid #1f2937;
+      display: none;
     }
 
     #mobile-menu.hidden {
