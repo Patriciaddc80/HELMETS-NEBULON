@@ -40,7 +40,10 @@
   <header id="header" class="fixed w-full bg-gray-900 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-6">
-        <span class="text-2xl font-bold text-white">Nebulon</span>
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="img/earth_1.png" alt="Nebulon Logo" class="w-10 h-10">
+          <span class="text-2xl font-bold text-white">Nebulon</span>
+        </a>
         <!-- Navigation Menu -->
         <nav>
           <ul class="hidden md:flex space-x-8">
@@ -94,10 +97,10 @@
     <section class="py-20 bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-1/2">
-            <img src="./img/124CASC.webp" alt="Advanced Communications Helmet" class="w-full rounded-lg" width="600" height="400" loading="lazy">
+          <div class="md:w-1/3">
+            <img src="img/casc5.jpeg" alt="Advanced Communications Helmet" class="w-full rounded-lg shadow-xl" width="400" height="300" loading="lazy">
           </div>
-          <div class="md:w-1/2 space-y-6">
+          <div class="md:w-2/3 space-y-6">
             <h2 class="text-3xl font-bold">Advanced Communications System</h2>
             <p class="text-gray-300">
               Our flagship helmet featuring state-of-the-art communication technology, enhanced visibility, 
@@ -134,59 +137,149 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Product 1 -->
-          <div class="bg-gray-800 rounded-xl overflow-hidden group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <img src="img/casc5.jpeg" alt="Communications Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
-              <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p class="text-white text-lg font-semibold">View Details</p>
+          <div class="bg-gray-800 rounded-xl overflow-hidden group perspective">
+            <div class="relative h-[400px] transition-transform duration-500 transform-style-3d">
+              <!-- Front of card -->
+              <div class="absolute w-full h-full backface-hidden">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                  <img src="img/casc5.jpeg" alt="Communications Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">View Details</p>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">Training Helmet</h3>
+                  <p class="text-gray-300 mb-4">
+                    Perfect for astronaut training and simulation exercises.
+                  </p>
+                  <button class="flip-btn text-blue-400 hover:text-blue-300 transition-colors">
+                    View Details <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Training Helmet</h3>
-              <p class="text-gray-300 mb-4">
-                Perfect for astronaut training and simulation exercises.
-              </p>
-              <button class="text-blue-400 hover:text-blue-300 transition-colors">
-                View Details <i class="fas fa-arrow-right ml-2"></i>
-              </button>
+              <!-- Back of card -->
+              <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-4">Training Helmet Details</h3>
+                <ul class="space-y-3 text-gray-300 mb-6">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Advanced simulation capabilities
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Real-time feedback system
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Comfortable for extended use
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Integrated training modules
+                  </li>
+                </ul>
+                <button class="flip-back-btn text-blue-400 hover:text-blue-300 transition-colors">
+                  <i class="fas fa-arrow-left mr-2"></i> Back to Front
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Product 2 -->
-          <div class="bg-gray-800 rounded-xl overflow-hidden group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <img src="img/casc6.jpeg" alt="Training Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
-              <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p class="text-white text-lg font-semibold">View Details</p>
+          <div class="bg-gray-800 rounded-xl overflow-hidden group perspective">
+            <div class="relative h-[400px] transition-transform duration-500 transform-style-3d">
+              <!-- Front of card -->
+              <div class="absolute w-full h-full backface-hidden">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                  <img src="img/casc6.jpeg" alt="Training Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">View Details</p>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">Research Helmet</h3>
+                  <p class="text-gray-300 mb-4">
+                    Designed for scientific missions with advanced data collection capabilities.
+                  </p>
+                  <button class="flip-btn text-blue-400 hover:text-blue-300 transition-colors">
+                    View Details <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Research Helmet</h3>
-              <p class="text-gray-300 mb-4">
-                Designed for scientific missions with advanced data collection capabilities.
-              </p>
-              <button class="text-blue-400 hover:text-blue-300 transition-colors">
-                View Details <i class="fas fa-arrow-right ml-2"></i>
-              </button>
+              <!-- Back of card -->
+              <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-4">Research Helmet Details</h3>
+                <ul class="space-y-3 text-gray-300 mb-6">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Advanced data collection sensors
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Environmental analysis tools
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Extended battery life
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Research-grade optics
+                  </li>
+                </ul>
+                <button class="flip-back-btn text-blue-400 hover:text-blue-300 transition-colors">
+                  <i class="fas fa-arrow-left mr-2"></i> Back to Front
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Product 3 -->
-          <div class="bg-gray-800 rounded-xl overflow-hidden group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <img src="img/casc7.jpeg" alt="Research Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
-              <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p class="text-white text-lg font-semibold">View Details</p>
+          <div class="bg-gray-800 rounded-xl overflow-hidden group perspective">
+            <div class="relative h-[400px] transition-transform duration-500 transform-style-3d">
+              <!-- Front of card -->
+              <div class="absolute w-full h-full backface-hidden">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                  <img src="img/casc7.jpeg" alt="Research Helmet" class="w-full h-64 object-cover rounded-lg shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">View Details</p>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">Exploration Helmet</h3>
+                  <p class="text-gray-300 mb-4">
+                    Built for long-duration space exploration missions.
+                  </p>
+                  <button class="flip-btn text-blue-400 hover:text-blue-300 transition-colors">
+                    View Details <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Exploration Helmet</h3>
-              <p class="text-gray-300 mb-4">
-                Built for long-duration space exploration missions.
-              </p>
-              <button class="text-blue-400 hover:text-blue-300 transition-colors">
-                View Details <i class="fas fa-arrow-right ml-2"></i>
-              </button>
+              <!-- Back of card -->
+              <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-4">Exploration Helmet Details</h3>
+                <ul class="space-y-3 text-gray-300 mb-6">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Extended life support systems
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Enhanced radiation protection
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Advanced navigation systems
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-blue-400 mr-2"></i>
+                    Emergency backup systems
+                  </li>
+                </ul>
+                <button class="flip-back-btn text-blue-400 hover:text-blue-300 transition-colors">
+                  <i class="fas fa-arrow-left mr-2"></i> Back to Front
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -332,6 +425,47 @@
 
   <!-- Load optimized JavaScript -->
   <script src="./js/main.js" defer></script>
+
+  <!-- Add styles for flip effect -->
+  <style>
+    .perspective {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .flipped {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <!-- Add JavaScript for flip functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flipButtons = document.querySelectorAll('.flip-btn');
+      const flipBackButtons = document.querySelectorAll('.flip-back-btn');
+
+      flipButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.perspective').querySelector('.transform-style-3d');
+          card.classList.add('flipped');
+        });
+      });
+
+      flipBackButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.perspective').querySelector('.transform-style-3d');
+          card.classList.remove('flipped');
+        });
+      });
+    });
+  </script>
 </body>
 
 </html> 
