@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="html, css, site">
+  <meta name="description" content="Rocketeer website with Tailwind CSS">
+  <title>Products - Rocketeer</title>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="./img/124CASC.webp" as="image">
+  <link rel="preload" href="./img/cascobabyrobot.webp" as="image">
+  <link rel="preload" href="./js/main.js" as="script">
+  
+  <!-- Defer non-critical CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+  
+  <!-- Inline critical CSS -->
+  <style>
+    /* Critical CSS */
+    .bg-gray-900 { background-color: #111827; }
+    .text-white { color: #ffffff; }
+    .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+    .from-gray-900 { --tw-gradient-from: #111827; }
+    .to-gray-800 { --tw-gradient-to: #1f2937; }
+  </style>
+  
+  <!-- Defer Tailwind -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+</head>
+
+<body class="bg-gray-900 text-white">
+  <!-- Header -->
+  <header id="header" class="fixed w-full bg-gray-900 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-6">
+        <span class="text-2xl font-bold text-white">Rocketeer</span>
+        <!-- Navigation Menu -->
+        <nav>
+          <ul class="hidden md:flex space-x-8">
+            <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-blue-400 transition-colors">About us</a></li>
+            <li><a href="products.html" class="hover:text-blue-400 transition-colors" aria-current="page">Ver Catálogo de Productos</a></li>
+            <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Ver Planes y Precios</a></li>
+            <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a></li>
+          </ul>
+
+          <!-- Hamburger icon for small screens -->
+          <div class="md:hidden">
+            <button id="hamburger" class="text-white focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile menu for small screens -->
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-900 text-white">
+      <ul class="space-y-4 py-4 px-6">
+        <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-400 transition-colors">About us</a></li>
+        <li><a href="products.html" class="hover:text-blue-400 transition-colors">View Product</a></li>
+        <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Products Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-gray-900 to-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl font-bold mb-6">Our Products</h1>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Discover our range of cutting-edge astronaut helmets designed for the future of space exploration
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Product -->
+    <section class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <img src="./img/124CASC.webp" alt="Advanced Communications Helmet" class="w-full rounded-lg" width="600" height="400" loading="lazy">
+          </div>
+          <div class="md:w-1/2 space-y-6">
+            <h2 class="text-3xl font-bold">Advanced Communications System</h2>
+            <p class="text-gray-300">
+              Our flagship helmet featuring state-of-the-art communication technology, enhanced visibility, 
+              and superior comfort for extended space missions.
+            </p>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check text-blue-400 mr-2"></i>
+                Advanced HUD display system
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-blue-400 mr-2"></i>
+                Multi-frequency communication array
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-blue-400 mr-2"></i>
+                Enhanced oxygen recycling system
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-blue-400 mr-2"></i>
+                Temperature regulation technology
+              </li>
+            </ul>
+            <button class="px-8 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Product 1 -->
+          <div class="bg-gray-800 rounded-xl overflow-hidden">
+            <img src="./img/cascobabyrobot.webp" alt="Training Helmet" class="w-full h-64 object-cover" width="400" height="256" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Training Helmet</h3>
+              <p class="text-gray-300 mb-4">
+                Perfect for astronaut training and simulation exercises.
+              </p>
+              <button class="text-blue-400 hover:text-blue-300 transition-colors">
+                View Details <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="bg-gray-800 rounded-xl overflow-hidden">
+            <img src="./img/124CASC.webp" alt="Research Helmet" class="w-full h-64 object-cover" width="400" height="256" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Research Helmet</h3>
+              <p class="text-gray-300 mb-4">
+                Designed for scientific missions with advanced data collection capabilities.
+              </p>
+              <button class="text-blue-400 hover:text-blue-300 transition-colors">
+                View Details <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="bg-gray-800 rounded-xl overflow-hidden">
+            <img src="./img/cascobabyrobot.webp" alt="Exploration Helmet" class="w-full h-64 object-cover" width="400" height="256" loading="lazy">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Exploration Helmet</h3>
+              <p class="text-gray-300 mb-4">
+                Built for long-duration space exploration missions.
+              </p>
+              <button class="text-blue-400 hover:text-blue-300 transition-colors">
+                View Details <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <i class="fas fa-microchip text-4xl text-blue-400 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Smart Technology</h3>
+            <p class="text-gray-300">
+              Integrated AI systems for enhanced functionality
+            </p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-shield-alt text-4xl text-blue-400 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Maximum Protection</h3>
+            <p class="text-gray-300">
+              Advanced materials for superior safety
+            </p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-wifi text-4xl text-blue-400 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Connectivity</h3>
+            <p class="text-gray-300">
+              Seamless communication systems
+            </p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-battery-full text-4xl text-blue-400 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Long Battery Life</h3>
+            <p class="text-gray-300">
+              Extended operation time for missions
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
+        <span class="text-gray-400">&copy; 2024 Rocketeer</span>
+        <div class="flex space-x-6">
+          <a href="https://twitter.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for mobile menu -->
+  <script async>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    });
+  </script>
+
+  <!-- Load optimized JavaScript -->
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html> 
