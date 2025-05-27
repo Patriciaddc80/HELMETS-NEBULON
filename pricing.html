@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="html, css, site">
-  <meta name="description" content="Rocketeer website with Tailwind CSS">
-  <title>Pricing - Rocketeer</title>
+  <meta name="description" content="Nebulon website with Tailwind CSS">
+  <title>Pricing - Nebulon</title>
   
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
@@ -43,7 +43,7 @@
   <header id="header" class="fixed w-full bg-gray-900 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-6">
-        <span class="text-2xl font-bold text-white">Rocketeer</span>
+        <span class="text-2xl font-bold text-white">Nebulon</span>
         <!-- Navigation Menu -->
         <nav>
           <ul class="hidden md:flex space-x-8">
@@ -220,20 +220,88 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 py-8">
+  <footer class="bg-gray-900 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center">
-        <span class="text-gray-400">&copy; 2024 Rocketeer</span>
-        <div class="flex space-x-6">
-          <a href="https://twitter.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
-            <i class="fab fa-twitter text-xl"></i>
-          </a>
-          <a href="https://www.facebook.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
-            <i class="fab fa-facebook text-xl"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" class="text-gray-400 hover:text-blue-400">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Company Info -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-white">Nebulon</h3>
+          <p class="text-gray-400">Pioneering the future of space exploration with cutting-edge helmet technology.</p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/Patriciaddc80" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors"
+              aria-label="Visit GitHub profile">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/patriciadiaz/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors"
+              aria-label="Visit LinkedIn profile">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://patriciadiaz.dev/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors"
+              aria-label="Visit personal website">
+              <i class="fas fa-globe text-xl"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors"
+              aria-label="Follow us on Instagram">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-blue-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-blue-400 transition-colors">About Us</a></li>
+            <li><a href="products.html" class="text-gray-400 hover:text-blue-400 transition-colors">Products</a></li>
+            <li><a href="pricing.html" class="text-gray-400 hover:text-blue-400 transition-colors">Pricing</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-blue-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Our Products</h4>
+          <ul class="space-y-2">
+            <li><a href="products.html#communications" class="text-gray-400 hover:text-blue-400 transition-colors">Communications Helmet</a></li>
+            <li><a href="products.html#training" class="text-gray-400 hover:text-blue-400 transition-colors">Training Helmet</a></li>
+            <li><a href="products.html#research" class="text-gray-400 hover:text-blue-400 transition-colors">Research Helmet</a></li>
+            <li><a href="products.html#custom" class="text-gray-400 hover:text-blue-400 transition-colors">Custom Solutions</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-map-marker-alt w-5"></i>
+              <span>123 Space Avenue, Mars Colony</span>
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-phone w-5"></i>
+              <span>+1 (555) 123-4567</span>
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-envelope w-5"></i>
+              <span>contact@nebulon.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-center md:text-left mb-4 md:mb-0">
+            <p class="text-gray-400 text-sm">&copy; 2024 Nebulon. All rights reserved.</p>
+            <p class="text-gray-400 text-sm mt-2">Designed and developed by <a href="https://patriciadiaz.dev/" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">Patricia Díaz</a></p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 text-sm transition-colors">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </div>
