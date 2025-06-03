@@ -1,7 +1,7 @@
 const { colors } = require("@mui/material")
 
 module.exports = {
-  content: ["./index.html", "./input.css"],
+  content: ["./*.html", "./js/**/*.js"],
   theme: {
     extend: {
       backgroundImage: {

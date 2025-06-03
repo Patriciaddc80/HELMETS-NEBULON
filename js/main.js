@@ -51,7 +51,7 @@ const utils = {
 
 // DOM Elements
 const header = document.getElementById('header');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
+const hamburgerButton = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 
 // Intersection Observer for header background
@@ -75,11 +75,11 @@ if (heroSection) {
 }
 
 // Mobile menu functionality
-if (mobileMenuButton && mobileMenu) {
-  mobileMenuButton.addEventListener('click', () => {
+if (hamburgerButton && mobileMenu) {
+  hamburgerButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
-    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+    const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+    hamburgerButton.setAttribute('aria-expanded', !isExpanded);
   });
 }
 
