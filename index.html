@@ -16,10 +16,26 @@
   <!-- Custom Cursor -->
   <style>
     * {
-      cursor: url('img/space-cursor.png'), auto;
+      cursor: url('img/space-cursor.png'), auto !important;
     }
-    a, button, [role="button"] {
-      cursor: url('img/space-cursor-pointer.png'), pointer;
+    a, button, [role="button"], 
+    input[type="submit"], 
+    input[type="button"],
+    .cursor-pointer {
+      cursor: url('img/space-cursor.png'), pointer !important;
+    }
+    /* Asegurar que el cursor personalizado se mantenga en elementos interactivos */
+    a:hover, button:hover, [role="button"]:hover,
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    .cursor-pointer:hover {
+      cursor: url('img/space-cursor.png'), pointer !important;
+    }
+    /* Asegurar que el cursor personalizado se mantenga en elementos deshabilitados */
+    button:disabled, 
+    input:disabled,
+    [disabled] {
+      cursor: url('img/space-cursor.png'), not-allowed !important;
     }
   </style>
 
