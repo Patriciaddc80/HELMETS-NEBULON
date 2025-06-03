@@ -268,153 +268,131 @@ const showCookieConsent = () => {
 showCookieConsent();
 
 // Product Carousel
-function initProductCarousel() {
-  const carousel = document.getElementById('product-carousel');
-  const cards = carousel.querySelectorAll('div[class*="min-w-"]');
-  const dots = document.querySelectorAll('[data-index]');
-  const prevBtn = document.getElementById('prev-product');
-  const nextBtn = document.getElementById('next-product');
-  let currentIndex = 0;
-  let isAnimating = false;
-  let autoScrollInterval;
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const minSwipeDistance = 50;
-  const transitionDuration = 700; // Duración de la transición en ms
+const productCarousel = document.getElementById('product-carousel');
+const prevButton = document.getElementById('prev-product');
+const nextButton = document.getElementById('next-product');
+const dots = document.querySelectorAll('[data-index]');
+const progressBar = document.getElementById('slider-progress');
 
-  // Función para actualizar el carrusel
-  function updateCarousel(index, animate = true) {
-    if (isAnimating) return;
-    isAnimating = true;
+let currentIndex = 0;
+const totalProducts = 6;
+const productsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+const maxIndex = totalProducts - productsPerView;
 
-    const cardWidth = cards[0].offsetWidth;
-    const translateX = -index * cardWidth;
-    
-    carousel.style.transition = animate ? `transform ${transitionDuration}ms cubic-bezier(0.4, 0, 0.2, 1)` : 'none';
-    carousel.style.transform = `translateX(${translateX}px)`;
-
-    // Actualizar dots
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('bg-blue-400', i === index);
-      dot.classList.toggle('bg-gray-600', i !== index);
-    });
-
-    // Actualizar botones
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === cards.length - 1;
-    prevBtn.style.opacity = index === 0 ? '0.5' : '1';
-    nextBtn.style.opacity = index === cards.length - 1 ? '0.5' : '1';
-
-    // Añadir efecto de fade a las tarjetas
-    cards.forEach((card, i) => {
-      card.style.opacity = i === index ? '1' : '0.7';
-      card.style.transform = i === index ? 'scale(1)' : 'scale(0.95)';
-    });
-
-    setTimeout(() => {
-      isAnimating = false;
-    }, transitionDuration);
-  }
-
-  // Función para iniciar el auto-scroll
-  function startAutoScroll() {
-    autoScrollInterval = setInterval(() => {
-      if (!carousel.matches(':hover')) {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarousel(currentIndex);
-      }
-    }, 5000); // Cambiar cada 5 segundos
-  }
-
-  // Inicializar
-  updateCarousel(currentIndex, false);
-  startAutoScroll();
-
-  // Event Listeners para los dots
+function updateCarousel() {
+  const offset = currentIndex * (100 / productsPerView);
+  productCarousel.style.transform = `translateX(-${offset}%)`;
+  
+  // Update progress bar
+  const progress = ((currentIndex + 1) / totalProducts) * 100;
+  progressBar.style.width = `${progress}%`;
+  
+  // Update dots
   dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentIndex = index;
-      updateCarousel(currentIndex);
-      clearInterval(autoScrollInterval);
-      startAutoScroll();
-    });
+    dot.classList.toggle('bg-blue-400', index === currentIndex);
+    dot.classList.toggle('bg-gray-600', index !== currentIndex);
   });
+  
+  // Update button states
+  prevButton.classList.toggle('opacity-50', currentIndex === 0);
+  prevButton.classList.toggle('cursor-not-allowed', currentIndex === 0);
+  nextButton.classList.toggle('opacity-50', currentIndex === maxIndex);
+  nextButton.classList.toggle('cursor-not-allowed', currentIndex === maxIndex);
+}
 
-  // Event Listeners para los botones
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel(currentIndex);
-      clearInterval(autoScrollInterval);
-      startAutoScroll();
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < cards.length - 1) {
-      currentIndex++;
-      updateCarousel(currentIndex);
-      clearInterval(autoScrollInterval);
-      startAutoScroll();
-    }
-  });
-
-  // Pausar en hover
-  carousel.addEventListener('mouseenter', () => {
-    clearInterval(autoScrollInterval);
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    startAutoScroll();
-  });
-
-  // Soporte para touch
-  carousel.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    clearInterval(autoScrollInterval);
-  });
-
-  carousel.addEventListener('touchmove', (e) => {
-    touchEndX = e.touches[0].clientX;
-  });
-
-  carousel.addEventListener('touchend', () => {
-    const swipeDistance = touchEndX - touchStartX;
-    
-    if (Math.abs(swipeDistance) > minSwipeDistance) {
-      if (swipeDistance > 0 && currentIndex > 0) {
-        // Swipe derecha
-        currentIndex--;
-      } else if (swipeDistance < 0 && currentIndex < cards.length - 1) {
-        // Swipe izquierda
-        currentIndex++;
-      }
-      updateCarousel(currentIndex);
-    }
-    
-    startAutoScroll();
-  });
-
-  // Responsive
-  function handleResize() {
-    const isMobile = window.innerWidth < 768;
-    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-    
-    cards.forEach(card => {
-      if (isMobile) {
-        card.style.minWidth = '100%';
-      } else if (isTablet) {
-        card.style.minWidth = '50%';
-      } else {
-        card.style.minWidth = '33.333%';
-      }
-    });
-    
-    updateCarousel(currentIndex, false);
+function nextSlide() {
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+    updateCarousel();
   }
+}
 
-  window.addEventListener('resize', handleResize);
-  handleResize();
+function prevSlide() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+}
+
+// Event Listeners
+if (prevButton && nextButton) {
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      prevSlide();
+    }
+  });
+  
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < maxIndex) {
+      nextSlide();
+    }
+  });
+}
+
+// Dot navigation
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateCarousel();
+  });
+});
+
+// Touch events for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (productCarousel) {
+  productCarousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  productCarousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartX - touchEndX;
+  
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0 && currentIndex < maxIndex) {
+      nextSlide();
+    } else if (diff < 0 && currentIndex > 0) {
+      prevSlide();
+    }
+  }
+}
+
+// Auto-scroll
+let autoScrollInterval;
+
+function startAutoScroll() {
+  autoScrollInterval = setInterval(() => {
+    if (currentIndex < maxIndex) {
+      nextSlide();
+    } else {
+      currentIndex = 0;
+      updateCarousel();
+    }
+  }, 5000);
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+
+// Start auto-scroll when mouse leaves the carousel
+if (productCarousel) {
+  productCarousel.addEventListener('mouseenter', stopAutoScroll);
+  productCarousel.addEventListener('mouseleave', startAutoScroll);
+  startAutoScroll();
+}
+
+// Initialize carousel
+if (productCarousel) {
+  updateCarousel();
 }
 
 // Initialize everything when DOM is ready
